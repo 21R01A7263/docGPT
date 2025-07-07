@@ -1,7 +1,7 @@
 
 import React from 'react';
 import type { ChatMessage as ChatMessageType } from '../types';
-import { UserIcon, AiIcon } from './icons';
+import { UserIcon, FileIcon } from './icons';
 
 const renderInline = (text: string) => {
   // Use regex to split by **...** to correctly handle bolding
@@ -74,13 +74,13 @@ const ChatMessage: React.FC<ChatMessageProps> = ({ message }) => {
   
   const icon = isUser 
     ? <UserIcon className="w-6 h-6 text-user-icon-fg" /> 
-    : <AiIcon className="w-6 h-6 text-ai-icon-fg" />;
+    : <FileIcon className="w-6 h-6 text-ai-icon-fg " />;
   
-  const iconBg = isUser ? 'bg-user-icon-bg' : 'bg-ai-icon-bg';
+  const iconBg = isUser ? 'bg-accent' : 'bg-ai-icon-bg';
 
   return (
     <div className="py-6 px-4 md:px-8 flex items-start gap-4 border-b border-border-subtle">
-      <div className={`w-10 h-10 flex-shrink-0 rounded-full ${iconBg} flex items-center justify-center`}>
+      <div className={`w-10 h-10 flex-shrink-0  rounded-full ${iconBg} flex items-center justify-center`}>
         {icon}
       </div>
       <div className="flex-1 pt-1 min-w-0">

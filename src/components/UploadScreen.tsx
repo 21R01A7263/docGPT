@@ -62,9 +62,8 @@ const UploadScreen: React.FC<UploadScreenProps> = ({ onFileUpload, isParsing }) 
                 <UploadIcon className="w-20 h-20 text-brand-light mb-4" />
                 <h2 className="text-3xl font-bold text-brand-text mb-2">DocuChat AI</h2>
                 <p className="text-brand-light mb-1">Drag & drop your document here</p>
-                <p className="text-sm text-brand-accent mb-4">(PDF or DOCX)</p>
                 <p className="text-brand-light">or</p>
-                <button type="button" onClick={() => document.getElementById('input-file-upload')?.click()} className="mt-4 px-6 py-2 bg-brand-accent text-white font-semibold rounded-lg hover:bg-opacity-80 transition-colors">
+                <button type="button" onClick={() => document.getElementById('input-file-upload')?.click()} className="mt-4 px-6 py-2 bg-brand-accent text-white font-semibold rounded-lg hover:bg-opacity-60 transition-colors">
                     Browse File
                 </button>
             </label>

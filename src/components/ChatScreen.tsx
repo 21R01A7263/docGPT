@@ -49,7 +49,7 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ messages, onSendMessage, isMode
         <div ref={chatEndRef} />
       </div>
 
-      <footer className="p-4 border-t border-border-subtle bg-chat-bg">
+      <footer className="p-4 bg-chat-bg">
         <form onSubmit={handleSubmit} className="flex items-center gap-3 max-w-3xl mx-auto">
           <input
             type="text"
@@ -61,10 +61,10 @@ const ChatScreen: React.FC<ChatScreenProps> = ({ messages, onSendMessage, isMode
           />
           <button
             type="submit"
-            disabled={!input.trim() || isModelTyping}
-            className="p-3 bg-accent text-white rounded-full hover:bg-opacity-80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            disabled={ isModelTyping}
+            className="p-2 bg-accent text-black rounded-full hover:bg-opacity-80 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            <SendIcon className="w-6 h-6" />
+            <SendIcon className="w-8 h-8 pl-1" />
           </button>
         </form>
       </footer>
