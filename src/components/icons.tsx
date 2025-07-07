@@ -26,8 +26,8 @@ export const UserIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 export const AiIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
-    <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 3v1.5M4.5 8.25H3m18 0h-1.5M4.5 12H3m18 0h-1.5m-15 3.75H3m18 0h-1.5M8.25 19.5V21M12 3v1.5m0 15V21m3.75-18v1.5M19.5 8.25h-1.5m-15 3.75h1.5m15 0h-1.5m-15 3.75h1.5m15 0h-1.5" />
+  <svg {...props} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1.95-4.22C9.42,15.33,12.38,13,17,12V8Z" />
   </svg>
 );
 

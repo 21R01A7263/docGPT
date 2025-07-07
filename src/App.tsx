@@ -11,7 +11,7 @@ import { ErrorIcon } from './components/icons';
 const App: React.FC = () => {
   const [appState, setAppState] = useState<AppState>(AppState.UPLOAD);
   const [documentText, setDocumentText] = useState<string | null>(null);
-  const [fileName, setFileName] = useState<string | null>(null);
+  // const [fileName, setFileName] = useState<string | null>(null);
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [isModelTyping, setIsModelTyping] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -19,7 +19,7 @@ const App: React.FC = () => {
   const handleNewChat = useCallback(() => {
     setAppState(AppState.UPLOAD);
     setDocumentText(null);
-    setFileName(null);
+    // setFileName(null);
     setMessages([]);
     setError(null);
     setIsModelTyping(false);
@@ -31,11 +31,11 @@ const App: React.FC = () => {
     try {
       const text = await parseDocument(file);
       setDocumentText(text);
-      setFileName(file.name);
+      // setFileName(file.name);
       setMessages([
         {
           role: 'model',
-          content: `Document "${file.name}" loaded successfully. You can now ask questions about its content.`,
+          content: `Document "${file.name}" loaded successfully.`,
         },
       ]);
       setAppState(AppState.CHATTING);
@@ -77,19 +77,17 @@ const App: React.FC = () => {
             messages={messages}
             onSendMessage={handleSendMessage}
             isModelTyping={isModelTyping}
-            onNewChat={handleNewChat}
-            fileName={fileName || 'your document'}
           />
         );
       case AppState.ERROR:
         return (
-          <div className="flex flex-col items-center justify-center h-full text-brand-text">
+          <div className="flex flex-col items-center justify-center h-full text-primary-text">
             <ErrorIcon className="w-16 h-16 text-red-500 mb-4" />
             <h2 className="text-2xl font-bold mb-2">An Error Occurred</h2>
-            <p className="text-brand-light mb-6 text-center max-w-md">{error}</p>
+            <p className="text-secondary-text mb-6 text-center max-w-md">{error}</p>
             <button
               onClick={handleNewChat}
-              className="px-6 py-2 bg-brand-accent text-white font-semibold rounded-lg hover:bg-opacity-80 transition-colors"
+              className="px-6 py-2 bg-accent text-white font-semibold rounded-lg hover:bg-opacity-80 transition-colors"
             >
               Start Over
             </button>
@@ -101,8 +99,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="bg-brand-primary min-h-screen font-sans text-brand-text flex flex-col items-center justify-center p-4">
-      <main className="w-full max-w-4xl h-[90vh] bg-brand-secondary rounded-2xl shadow-2xl flex flex-col">
+    <div className="bg-page-bg min-h-screen font-sans text-primary-text flex flex-col items-center justify-center p-4">
+      <main className="w-full max-w-4xl h-[90vh] bg-chat-bg rounded-2xl shadow-2xl flex flex-col overflow-hidden">
         {renderContent()}
       </main>
     </div>
